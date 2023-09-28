@@ -120,34 +120,33 @@ Solutions Staff
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="fill" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-1. **Prototyping the Concept + Code *(2021/2022)***
-	- Back and Forth with Customer<!-- .element: class="small-txt" -->
-	- Many Iterations until result satisfied CONOPS<!-- .element: class="small-txt" -->
-	- Built on AirHub Data Infrastructure & Surface Generator API <!-- .element: class="small-txt" -->
-	- Python Scripts + Jupyter Notebooks + ArcGIS Tools<!-- .element: class="small-txt" -->
-	- 1st Gen Commercial Delivery Emerg. Landings Data Model<!-- .element: class="small-txt" -->     
+1. **UPS Prototype Concept *(2021/2022)***
+	- Multiple customer iterations to satisfy CONOPS<!-- .element: class="small-txt" -->
+	- Built on AirHub Data & surface generator API <!-- .element: class="small-txt" -->
+	- Python scripts + Jupyter Notebooks + ArcGIS <!-- .element: class="small-txt" -->
+	- 1st gen commercial emergency landings model<!-- .element: class="small-txt" -->     
 
-Madhura, Tyler...?<!-- .element: class="smaller-txt" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="fill" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 2. **Refactor Codebase *(2022)***
-	- Python Landings Module<!-- .element: class="small-txt" -->
-	- Preprocessing Raster Terrain Data (Slope + TRI)<!-- .element: class="small-txt" -->
-	- Additional Surface Layer availability (Parks, Streams, Buildings...)<!-- .element: class="small-txt" -->
-	- Data Validation for Functional Parity<!-- .element: class="small-txt" -->
+	- Python Landings Script<!-- .element: class="small-txt" -->
+	- Preprocessing raster terrain data (Slope + TRI)<!-- .element: class="small-txt" -->
+	- Additional Surface Layer availability (Parks, Buildings...)<!-- .element: class="small-txt" -->
+	- Data Validation for functional parity with UPS project<!-- .element: class="small-txt" -->
 
-<img src="images/EKlulcHex.png" alt="" style="width: 400px; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="fill" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 3. **Insights Product Prototype *(2023)***
-	- Develop Landings Models from UPS customer requirements<!-- .element: class="small-txt" -->
-	- Experimental Layer weights/normalize landing model<!-- .element: class="small-txt" -->
-	- Productize + Enhance Solutions Azure surface functions<!-- .element: class="small-txt" -->
-	- Extend Insights On Demand App Landings POC Demos<!-- .element: class="small-txt" --> 
+    - Improve flexiblity, customization, repeatability<!-- .element class="small-txt" -->
+    - Complex analysis of cell features - beyond feature presence/absence<!-- .element class="small-txt" -->
+    - Develop landings models from UPS requirements<!-- .element class="small-txt" -->
+    - Incorporate landing models and feature weighting in code<!-- .element class="small-txt" -->
+    - Add hard filter - always avoid critical infrastructure<!-- .element class="small-txt" --> 
+    - Created 3 preset landing models + weights<!-- .element class="small-txt" -->
+    - Demo App Landings POC allows user to customize model<!-- .element class="small-txt" --> 
 
-<img src="images/image.png" alt="" style="width: 400px; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="fill" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -156,21 +155,18 @@ Madhura, Tyler...?<!-- .element: class="smaller-txt" -->
         frameborder="0" src="https://salmon-moss-028a04d10.2.azurestaticapps.net/">
     </iframe>
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="fill" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="fill" data-background-opacity="0.0" data-background-image="images/demoBackground.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-4. **Next Steps...**
-	- Buildings 4 Landings & LiDAR Obstacles!<!-- .element: class="small-txt" -->
-	- Customer/Internal feedback to validate models<!-- .element: class="small-txt" -->
-	- Next Phase Combined Landings Demo => ReadyToFly(?)<!-- .element: class="small-txt" -->
-		- Surface > Route > Landing Surface > Selected Landing Sites<!-- .element: class="smaller-txt" -->
-		- Split Route Pts > LeastCostRoute to nearest Landing<!-- .element: class="smaller-txt" -->
-	- Pursue Operational Drone Flight Implementation /w Portal<!-- .element: class="small-txt" -->
-		- Routing/Landings Determined by Aircraft Type<!-- .element: class="smaller-txt" -->
-		- Real-World testing with Ground Control Stations at DroneDome<!-- .element: class="smaller-txt" --> 
- 
+4.  **Next Steps...**
+    - Incorporate buildings, LiDAR obstacles, buffers<!-- .element class="small-txt" -->
+    - Solicit customer/internal feedback<!-- .element class="small-txt" -->
+    - Model validation/ground truthing<!-- .element class="small-txt" -->
+    - POC testing in Drone Dome<!-- .element class="small-txt" -->
+    - Routing to landings<!-- .element class="small-txt" -->
+    - Risk along route<!-- .element class="small-txt" -->
 
-<div style="position:absolute; width:120%; height:0px; padding-bottom:120%; z-index:-999; opacity: 0.1;">
+<div style="position:absolute; width:120%; height:0px; padding-bottom:120%; z-index:-999; opacity: 0.05;">
     <iframe style="position:absolute; left:0; top:0; width:100%; height:100%"
         frameborder="0" src="https://airspacelink.com">
     </iframe>
