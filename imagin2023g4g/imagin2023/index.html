@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### IMAGIN 30th Annual Conference  
+##### Crystal Mountain Resort  
+##### June 5th 2023
+## GeoPandas 4 GeoSpatial
+Eric Kerney   
+Airspace Link
+
+<style>
+	.small-txt{ font-size: xx-large; }
+	.smaller-txt{ font-size: x-large; }
+</style>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="expand" data-background-opacity="1.0" data-background-image="images/Screenshot630.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>this is not! Only the speaker might see this text.
+Our vision is to create a world where the safe integration of drones fuels human progress, advancing social equity, the environment, and the economy.</p>
+<p>We believe in the power and importance of infrastructure.</p>
+<p>Every few decades a major inflection point in the world’s infrastructure progresses humanity forward. Vanderbilt and the railroads, Edison and the electrical grid, Eisenhower and the highways and now; Airspace Link’s low altitude digital infrastructure.</p>
+<p>Our mission is to enable the safe integration of drones into the national airspace and communities at scale through digital infrastructure, strategic partnerships and thought leadership.</p>
+<p>Our team includes data scientists, software engineers, aviation engineers, and industry experts from Google, Lyft, GE Aviation/AiRXOS, Geometri, GISinc, Ford Motor Company, Amazon Prime Air, and the U.S. Air Force to name a few.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+https://airspacelink.com/government<!-- .element: class="small-txt" -->
+<iframe src="https://airspacelink.com/government" width=100% height=100% allowtransparency="false"></iframe>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Why Python?
+
+- Expand your toolbox<!-- .element: class="small-txt" -->
+- Number and quality of job opportunities<!-- .element: class="small-txt" -->
+- Overall Task Speed<!-- .element: class="small-txt" -->
+- Workflow Automation<!-- .element: class="small-txt" -->
+- Desktop GIS is SLOW & Frustrating<!-- .element: class="small-txt" -->
+- Emerging Technologies: <!-- .element: class="small-txt" -->
+	- Machine Learning, Remote Sensing, Autonomous Navigation, Aerospace...   <!-- .element: class="smaller-txt" -->
+- Problem Solving is FUN!<!-- .element: class="small-txt" -->
+- COST === $0.00<!-- .element: class="small-txt" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Where is Python?
+- GIS!<!-- .element: class="small-txt" -->
+- GeoSpatial Data Analysis<!-- .element: class="small-txt" -->
+- Data Science<!-- .element: class="small-txt" -->
+- Many Science Fields<!-- .element: class="small-txt" -->
+- Artificial Intelligence & Deep Learning<!-- .element: class="small-txt" -->
+- Statistics<!-- .element: class="small-txt" -->
+- Frameworks<!-- .element: class="small-txt" -->
+	- Django/GeoDjango, Flask, FastAPI, Dash<!-- .element: class="smaller-txt" -->
+	- Used by Intel, IBM, NASA, Pixar, Netflix, Facebook, JP Morgan Chase, Spotify<!-- .element: class="smaller-txt" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### What is Python?
+- Widely used, high-level programming language<!-- .element: class="small-txt" -->
+- Guido van Rossum - 1991 - Monty Python<!-- .element: class="small-txt" -->
+- Which version? (2 or 3 or ?)<!-- .element: class="small-txt" -->
+- Simple Syntax, indentation rules<!-- .element: class="small-txt" -->
+- Dynamically Typed<!-- .element: class="small-txt" -->
+- Object Oriented...<!-- .element: class="small-txt" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Getting Started
+1. Jupyter Notebooks
+	1. GOOD => Standard Jupyter Notebook<!-- .element: class="smaller-txt" -->
+	3. BETTER => Google Colab Web Notebooks<!-- .element: class="smaller-txt" -->
+	2. BEST => VSCode Jupyter Extension<!-- .element: class="smaller-txt" -->
+
+2. Python Basics
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-size="contain" data-background-opacity="0.3" data-background-image="images/demoBackground.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+[https://airspacelink.com/](https://airspacelink.com/)   
+[eric.kerney@airspacelink.com](eric.kerney@airspacelink.com)     
+ 
+Notebook from Presentation:   
+https://github.com/Location-Artistry/GEO-NOTEBOOKS/blob/main/GeoPandas4GeoSpatial.ipynb<!-- .element: class="small-txt" -->   
+Presentation Slides:     
+https://github.com/Location-Artistry<!-- .element: class="small-txt" -->
+</div></script></section><section  data-markdown><script type="text/template">
+
+
+</script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+	      RevealPointer,
+		  RevealChalkboard, 
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0,"controls":true,"progress":true,"slideNumber":false,"transition":"slide","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
